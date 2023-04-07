@@ -4,24 +4,16 @@
  * @return {number[]}
  */
 var topKFrequent = function(nums, k) {
-    const answer=[];
-    nums.sort((a,b)=>a-b);
-    while(nums.length!==0){
-    let left=0;
-    let right=nums.length-1;
-    let mid=Math.ceil((left+right)/2);
-    let target=nums[0];
-    while(left<mid){
-        if(nums[mid]===target){
-            left=mid;
+    const map=new Map();
+    
+    for(let i=0; i<nums.length; i++){
+        if(map.has(nums[i])){
+            map.set(nums[i],map.get(nums[i])+1);
         }else{
-            right=mid-1;
+            map.set(nums[i],1);
         }
-        mid=Math.ceil((left+right)/2);
     }
-    answer.push([target,left+1]);
-    nums=nums.slice(left+1);
-    }
-console.log(answer);
-   return answer.sort((a,b)=>b[1]-a[1]).map(el=>el[0]).slice(0,k);
+const answer=[...map];
+    return answer.sort((a,b)=>b[1]-a[1]).map(el=>el[0]).slice(0,k);
+
 };
