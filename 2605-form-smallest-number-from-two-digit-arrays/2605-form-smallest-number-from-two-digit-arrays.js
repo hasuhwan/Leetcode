@@ -11,5 +11,5 @@ var minNumber = function(nums1, nums2) {
             return nums1[i];
         }
     }
-    return nums1[0]>nums2[0]?String(nums2[0])+String(nums1[0]):String(nums1[0])+String(nums2[0])
+    return [nums1[0],nums2[0]].sort((a,b)=>a-b).join("");
 };
