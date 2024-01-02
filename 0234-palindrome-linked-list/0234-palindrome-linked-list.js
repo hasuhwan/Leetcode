@@ -11,17 +11,17 @@
  */
 var isPalindrome = function(head) {
     
-    function dfs(node,arr){
+    return (function isRoundTrip(node,arr){
         if(!node){
             return true;
         }
         arr.push(node.val);
-        if(dfs(node.next,arr)){
+        if(isRoundTrip(node.next,arr)){
             if(node.val===arr.shift()){
                 return true;
             }
         }
         return false;
-    }
-    return dfs(head,[]);
+    })(head,[]);
+
 };
