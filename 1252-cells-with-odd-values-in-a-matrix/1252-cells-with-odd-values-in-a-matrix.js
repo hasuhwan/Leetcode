@@ -6,7 +6,6 @@
  */
 var oddCells = function(m, n, indices) {
     let answer=0;
-    const boolArr=new Array(m).fill(1);
     const rowArr=new Array(m).fill(1);
     const colArr=new Array(n).fill(1);
     indices.forEach(([row,col])=>{
